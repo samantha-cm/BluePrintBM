@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { ContextProvider } from "./hooks/context";
+import Router from "./Router";
+import { createGlobalStyle } from "styled-components";
+
+const Global = createGlobalStyle`
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;}
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Global />
+      <ContextProvider>
+        <Router />
+      </ContextProvider>
+    </>
   );
 }
 
