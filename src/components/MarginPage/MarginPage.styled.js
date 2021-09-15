@@ -40,12 +40,12 @@ export const DivAuto = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: red;
+  background: #84d442;
 `;
 export const DivMargin = styled.div`
   width: 100px;
   height: 100px;
-  background: blue;
+  background: rebeccapurple;
   margin-top: ${(p) => (p.top ? p.top : "0px")};
   margin-right: ${(p) => (p.right ? p.right : "0px")};
   margin-bottom: ${(p) => (p.bottom ? p.bottom : "0px")};
@@ -92,7 +92,7 @@ export const ContainerTwo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: yellow;
+  background: #d9d9d9;
   width: 70%;
   height: 100vh;
 `;

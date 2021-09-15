@@ -6,15 +6,16 @@ import {
   Container,
   DivAuto,
   DivMargin,
-  BtnNextLevel,
   ContainerOne,
   ContainerTwo,
   Description,
   Intrucciones,
-} from "./Home.styled";
+} from "./MarginPage.styled";
 import box from "../../box-free/box.png";
 import Form from "../Form/Form";
-function Home() {
+import { Button } from "../Button/Button";
+import Swal from "sweetalert2";
+function MarginPage() {
   const {
     marginTop,
     setMarginTop,
@@ -38,14 +39,17 @@ function Home() {
     }
     if (!marginRight.trim()) {
       console.log("Hace falta llenar margi-Right");
+      setValidations(true);
       return;
     }
     if (!marginBottom.trim()) {
       console.log("Hace falta llenar margin-Bottom");
+      setValidations(true);
       return;
     }
     if (!marginLeft.trim()) {
       console.log("Hace falta llenar margin-Left");
+      setValidations(true);
       return;
     }
     if (
@@ -54,11 +58,27 @@ function Home() {
       event.target[2].value === "30px" &&
       event.target[3].value === "20px"
     ) {
-      setNextLevel(true);
+      setValidations(false);
       console.log("correct");
       setNextLevel("visible");
+      Swal.fire({
+        title: "Bien hecho!",
+        text: "Los valores son correctos",
+        icon: "success",
+        confirmButtonText: "ok",
+      });
     } else {
-      console.log("incorrect");
+      setValidations(false);
+      setMarginTop("");
+      setMarginBottom("");
+      setMarginLeft("");
+      setMarginRight("");
+      Swal.fire({
+        title: "Buen intento!",
+        text: "Los valores no son correctos",
+        icon: "error",
+        confirmButtonText: "ok",
+      });
     }
 
     console.log(event.target[0].value);
@@ -116,11 +136,10 @@ function Home() {
             marginLeft={marginLeft}
             setMarginLeft={setMarginLeft}
           />
-          <BtnNextLevel vis={nextLevel}>
-            <Link to="/level-one" style={{ textDecoration: "none" }}>
-              Next level
-            </Link>
-          </BtnNextLevel>
+
+          <Link to="/level-one" style={{ textDecoration: "none" }}>
+            <Button name="Next level" vis={nextLevel} />
+          </Link>
         </ContainerOne>
         <ContainerTwo>
           <br />
@@ -128,7 +147,7 @@ function Home() {
             style={{
               minWidth: "500px",
               minHeight: "400px",
-              border: "2px solid black",
+              border: "2px solid blue",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -152,4 +171,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MarginPage;

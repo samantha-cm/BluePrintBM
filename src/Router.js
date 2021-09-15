@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./components/Home/Home.jsx";
+import MarginPage from "./components/MarginPage/MarginPage.jsx";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
 // import { useContextValue } from "./hooks/context.js";
 
@@ -14,7 +14,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/home" component={Home} exact />
+        <Route path="/margin" component={MarginPage} exact />
         <Route path="/level-one" component={LevelOne} exact />
         <Route path="/" component={LandingPage} exact />
       </Switch>

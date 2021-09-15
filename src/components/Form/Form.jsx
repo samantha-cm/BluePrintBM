@@ -1,5 +1,6 @@
-import { ButtonPlay } from "../Home/Home.styled";
+import { ButtonPlay } from "../MarginPage/MarginPage.styled";
 import { Container, Fila, Num, Text } from "./Form.styled";
+import { ImCss3 } from "react-icons/im";
 
 function Form({
   sendData,
@@ -23,7 +24,9 @@ function Form({
               padding: "5px 0",
             }}
           >
-            <Num></Num>
+            <Num>
+              <ImCss3 style={{ color: "rgb(0,158,251" }} />
+            </Num>
             <Text
               style={{
                 color: "#19c555",
@@ -31,7 +34,7 @@ function Form({
                 alignItems: "center",
               }}
             >
-              CSS
+              style.css
             </Text>
           </Fila>
           <Fila>
@@ -49,11 +52,6 @@ function Form({
                 onChange={(event) => setMarginTop(event.target.value)}
               />
               ;
-              {validations === true ? (
-                <p style={{ color: "red", margin: "0" }}>falta llenar</p>
-              ) : (
-                ""
-              )}
             </Text>
           </Fila>
           <Fila>
@@ -67,11 +65,6 @@ function Form({
                 onChange={(event) => setMarginRight(event.target.value)}
               />
               ;
-              {validations === true ? (
-                <p style={{ color: "red", margin: "0" }}>falta llenar</p>
-              ) : (
-                ""
-              )}
             </Text>
           </Fila>
           <Fila>
@@ -85,11 +78,6 @@ function Form({
                 onChange={(event) => setMarginBottom(event.target.value)}
               />
               ;
-              {validations === true ? (
-                <p style={{ color: "red", margin: "0" }}>falta llenar</p>
-              ) : (
-                ""
-              )}
             </Text>
           </Fila>
           <Fila>
@@ -103,11 +91,6 @@ function Form({
                 onChange={(event) => setMarginLeft(event.target.value)}
               />
               ;
-              {validations === true ? (
-                <p style={{ color: "red", margin: "0" }}>falta llenar</p>
-              ) : (
-                ""
-              )}
             </Text>
           </Fila>
           <Fila>
@@ -116,7 +99,21 @@ function Form({
           </Fila>
           <Fila>
             <Num>7</Num>
-            <Text></Text>
+            <Text>
+              {validations === true ? (
+                <p
+                  style={{
+                    color: "#FF6747",
+                    margin: "0",
+                    fontWeight: "lighter",
+                  }}
+                >
+                  Faltan campos por llenar
+                </p>
+              ) : (
+                ""
+              )}
+            </Text>
           </Fila>
           <ButtonPlay type="submit">check answers</ButtonPlay>
         </form>

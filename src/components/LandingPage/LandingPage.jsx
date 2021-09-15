@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { Container, BtnStart } from "./LandingPage.styled";
+
+import { Container } from "./LandingPage.styled";
+import { Button } from "../Button/Button.jsx";
 import box from "../../box-free/box.png";
 function LandingPage() {
   return (
@@ -15,18 +17,15 @@ function LandingPage() {
           <h1 translate="no">Box Model Blueprint</h1>
           <img src={box} alt="game" />
         </div>
-
-        <BtnStart>
-          <Link
-            style={{
-              color: "black",
-              textDecoration: "none",
-            }}
-            to="/home"
-          >
-            START GAME
-          </Link>
-        </BtnStart>
+        <Link
+          style={{
+            color: "black",
+            textDecoration: "none",
+          }}
+          to="/margin"
+        >
+          <Button name="START GAME" />
+        </Link>
       </Container>
     </>
   );
