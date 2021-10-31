@@ -7,6 +7,8 @@ export const ContextProvider = (props) => {
   const [marginRight, setMarginRight] = useState("");
   const [marginBottom, setMarginBottom] = useState("");
   const [marginLeft, setMarginLeft] = useState("");
+  const [width, setWidth] = useState("100px");
+  const [height, setHeight] = useState("100px");
 
   return (
     <Context.Provider
@@ -17,8 +19,10 @@ export const ContextProvider = (props) => {
         marginBottom,
         marginLeft,
         padding: "",
-        width: "",
-        height: "",
+        width,
+        setWidth,
+        height,
+        setHeight,
         border: "",
         setMarginTop,
         setMarginRight,

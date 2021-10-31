@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-
 import { Container } from "./LandingPage.styled";
-import { Button } from "../Button/Button.jsx";
+import { Button } from "../../components/Button/Button.jsx";
 import box from "../../box-free/box.png";
 function LandingPage() {
   return (

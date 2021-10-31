@@ -1,19 +1,10 @@
-import { ButtonPlay } from "../MarginPage/MarginPage.styled";
+import { ButtonPlay } from "../../pages/MarginPage/MarginPage.styled";
 import { Container, Fila, Num, Text } from "./Form.styled";
 import { ImCss3 } from "react-icons/im";
 
-function Form({
-  sendData,
-  marginTop,
-  setMarginTop,
-  validations,
-  marginRight,
-  setMarginRight,
-  marginBottom,
-  setMarginBottom,
-  marginLeft,
-  setMarginLeft,
-}) {
+function Form({ sendData, validations, data }) {
+  console.log(data);
+
   return (
     <>
       <Container>
@@ -41,64 +32,28 @@ function Form({
             <Num>1</Num>
             <Text>.box﹛</Text>
           </Fila>
+
+          {data.map((e, i) => (
+            <Fila key={i}>
+              <Num>{(i += 2)}</Num>
+              <Text>
+                <label>{e.name}</label>
+                <input
+                  type="text"
+                  name={e.name}
+                  value={e.value}
+                  onChange={(event) => e.setValue(event.target.value)}
+                />
+              </Text>
+            </Fila>
+          ))}
+
           <Fila>
-            <Num>2</Num>
-            <Text>
-              <label>margin-top:</label>
-              <input
-                type="text"
-                name="margin-top"
-                value={marginTop}
-                onChange={(event) => setMarginTop(event.target.value)}
-              />
-              ;
-            </Text>
-          </Fila>
-          <Fila>
-            <Num>3</Num>
-            <Text>
-              <label>margin-right:</label>
-              <input
-                type="text"
-                name="margin-right"
-                value={marginRight}
-                onChange={(event) => setMarginRight(event.target.value)}
-              />
-              ;
-            </Text>
-          </Fila>
-          <Fila>
-            <Num>4</Num>
-            <Text>
-              <label>margin-bottom:</label>
-              <input
-                type="text"
-                name="margin-bottom"
-                value={marginBottom}
-                onChange={(event) => setMarginBottom(event.target.value)}
-              />
-              ;
-            </Text>
-          </Fila>
-          <Fila>
-            <Num>5</Num>
-            <Text>
-              <label>margin-left:</label>
-              <input
-                type="text"
-                name="margin-left"
-                value={marginLeft}
-                onChange={(event) => setMarginLeft(event.target.value)}
-              />
-              ;
-            </Text>
-          </Fila>
-          <Fila>
-            <Num>6</Num>
+            <Num>{data.length + 2}</Num>
             <Text>﹜</Text>
           </Fila>
           <Fila>
-            <Num>7</Num>
+            <Num>{data.length + 3}</Num>
             <Text>
               {validations === true ? (
                 <p

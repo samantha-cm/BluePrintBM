@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContextValue } from "../../hooks/context";
 import {
-  DivTitle,
   Container,
   DivAuto,
   DivMargin,
@@ -10,10 +9,10 @@ import {
   ContainerTwo,
   Description,
   Intrucciones,
-} from "./MarginPage.styled";
-import box from "../../box-free/box.png";
-import Form from "../Form/Form";
-import { Button } from "../Button/Button";
+} from "./MarginPage.styled.js";
+import Form from "../../components/Form/Form";
+import { Button } from "../../components/Button/Button.jsx";
+import Title from "../../components/Title/Title";
 import Swal from "sweetalert2";
 function MarginPage() {
   const {
@@ -26,6 +25,25 @@ function MarginPage() {
     marginLeft,
     setMarginLeft,
   } = useContextValue();
+
+  const data = [
+    {
+      name: "margin-top",
+      value: marginTop,
+      setValue: setMarginTop,
+    },
+    {
+      name: "margin-right",
+      value: marginRight,
+      setValue: setMarginRight,
+    },
+    { name: "margin-left", value: marginLeft, setValue: setMarginLeft },
+    {
+      name: "margin-bottom",
+      value: marginBottom,
+      setValue: setMarginBottom,
+    },
+  ];
 
   const [nextLevel, setNextLevel] = useState("hidden");
   const [validations, setValidations] = useState(false);
@@ -91,11 +109,7 @@ function MarginPage() {
     <>
       <Container>
         <ContainerOne>
-          <DivTitle>
-            <h2 translate="no">Box Model Blueprint</h2>
-            <img src={box} alt="game" />
-          </DivTitle>
-
+          <Title />
           <Description>
             <h4>Margin</h4>
             <p>
@@ -124,20 +138,9 @@ function MarginPage() {
             </ul>
           </Intrucciones>
 
-          <Form
-            sendData={sendData}
-            marginTop={marginTop}
-            setMarginTop={setMarginTop}
-            validations={validations}
-            marginRight={marginRight}
-            setMarginRight={setMarginRight}
-            marginBottom={marginBottom}
-            setMarginBottom={setMarginBottom}
-            marginLeft={marginLeft}
-            setMarginLeft={setMarginLeft}
-          />
+          <Form sendData={sendData} validations={validations} data={data} />
 
-          <Link to="/level-one" style={{ textDecoration: "none" }}>
+          <Link to="/width&height" style={{ textDecoration: "none" }}>
             <Button name="Next level" vis={nextLevel} />
           </Link>
         </ContainerOne>
